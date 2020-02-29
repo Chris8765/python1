@@ -1,0 +1,24 @@
+# program liczący za użytkownika, użytkownik podaje liczbę początkową,
+# liczbę końcową i wielkości odstępu między kolejnymi liczbami
+
+liczba_poczatkowa = int(input("Podaj liczbę początkową: "))
+liczba_koncowa = int(input("Podaj liczbę końcową: "))
+odstep = int(input("POdaj wielkość odstępu między kolejnymi liczbami: "))
+
+print("Liczenie:")
+for i in range(liczba_poczatkowa, liczba_koncowa, odstep):
+    print(i, end=" ")
+
+decyzja = (input("\nJeżeli chcesz przeprowadzić nowe liczenie naciśnij: 1,aby zakończyć program naciśnij Enter"))
+
+
+while decyzja ==1:
+    liczba_poczatkowa = int(input("Podaj liczbę początkową: "))
+    liczba_koncowa = int(input("Podaj liczbę końcową: "))
+    odstep = int(input("POdaj wielkość odstępu między kolejnymi liczbami: "))
+
+    print("Liczenie:")
+    for i in range(liczba_poczatkowa, liczba_koncowa, odstep):
+        print(i, end=" ")
+
+    decyzja = (input("\nJeżeli chcesz przeprowadzić nowe liczenie naciśnij: 1, aby zakończyć program naciśnij Enter"))

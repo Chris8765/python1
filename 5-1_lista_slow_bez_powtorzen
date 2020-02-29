@@ -1,0 +1,48 @@
+# lista słów bez żadnych powtórzeń
+
+import random
+
+lista_slow = []
+
+licznik_powtórzeń = int(input("\n\nPodaj ilość powtórzeń:\n"))
+
+wprowadzam_slowo = input("Wprowadz element list:\n")
+
+lista_slow.append(wprowadzam_slowo)
+
+
+print(lista_slow)
+
+decyzja_użytkownika = 1
+
+while decyzja_użytkownika == 1:
+        wprowadzam_slowo = input("Wprowadz element list:\n")
+
+        lista_slow.append(wprowadzam_slowo)
+        decyzja_użytkownika = input("Jeśli chcesz dodać element listy naciśnij: 1")
+
+ilość_nowych_list = 0
+while licznik_powtórzeń > 0:
+
+    lista_slow =['kot', 'pies', 'rower', 'telefon','piłka','telefon','szklanka','monitor','laptop','worek',]
+
+    nowa_lista = []
+
+    ilosc = len(lista_slow)
+    licznik_powtórzeń -= 1
+    ilość_nowych_list += 1
+
+    while len(lista_slow) > 0:
+
+        slowo = random.choice(lista_slow)
+        lista_slow.remove(slowo)
+        if nowa_lista.count(slowo) < 1:
+                nowa_lista.append(slowo)
+
+
+    print(ilość_nowych_list, " lista to:", nowa_lista)
+
+dlugosc =len(nowa_lista)
+print("\nIlość niepowtarzających się elementów listy wynosi:", dlugosc)
+
+input("\n\nAby zakończyć program, naciśnij klawisz Enter.")
