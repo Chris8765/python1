@@ -12,17 +12,13 @@ def display_instruct():
   print(
   """
   Instrukcja do gry \"Kółko i krzyżyk\"
-
-  Swoje posunięcia wskażesz poprzez wprowadzenie liczby z zakresu 0 do 8.
-
+  Swoje posunięcia wskażesz poprzez wprowadzenie liczby z zakresu 1 do 9.
   Liczba ta odpowiada pozycji na planszy zgodnie z poniższym schematem:
-
-  0 | 1 | 2
+  1 | 2 | 3
   ---------
-  3 | 4 | 5
+  4 | 5 | 6
   ---------
-  6 | 7 | 8
-
+  7 | 8 | 9
   """  
   )
 
@@ -37,7 +33,7 @@ def ask_yes_no(question):
 def ask_number(question, low, high):
     """Popros o podanie liczby z odpowiedniego zakresu."""
     response = None
-    while response not in range (low, high):
+    while response not in range (low+1, high+1):
         response = int(input(question))
     return response
 
@@ -105,7 +101,7 @@ def human_move(board, human):
    legal = legal_moves(board)
    move = None
    while move not in legal:
-        move = ask_number("Jaki będzie twój ruch ( 0 - 8):", 0, NUM_SQUARES)
+        move = (ask_number("Jaki będzie twój ruch ( 1 - 9):", 0, NUM_SQUARES))-1
         if move not in legal:
             print("\nTo pole jest już zajęte, wybierz inne. \n")
     
@@ -120,6 +116,8 @@ def computer_move(board, computer, human):
     #najlepsza pozycja do zajęcia wg. kolejnosci
     
     BEST_MOVES = (4, 0, 2, 6, 8, 1, 3, 5, 7) 
+    
+    
     print("Wybieram pole numer:", end="")
     
     #jesli komputer może wygrać wykonaj ten ruch
@@ -144,7 +142,7 @@ def computer_move(board, computer, human):
     # poniewaz nikt nie moze wygrac w nastepnym ruchu, wybierz najlepsze wolne pole
     for move in BEST_MOVES:
         if move in legal_moves(board):
-            print (move)
+            print (move+1)
             return move
  
 def next_turn(turn):
